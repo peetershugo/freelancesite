@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Data & IA - Consultant Freelance</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(163, 42, 135, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #A32A87;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #A32A87;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #A32A87;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f4f8 0%, #e9d1e3 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23A32A87" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #A32A87;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #A32A87;
+            color: white;
+            box-shadow: 0 4px 15px rgba(163, 42, 135, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #7a1e62;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(163, 42, 135, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #A32A87;
+            border: 2px solid #A32A87;
+        }
+
+        .btn-secondary:hover {
+            background: #A32A87;
+            color: white;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #A32A87;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-circle {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #A32A87, #e9d1e3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .profile-circle i {
+            font-size: 6rem;
+            color: white;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #A32A87;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .value-item {
+            background: #f8f4f8;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 4px solid #A32A87;
+        }
+
+        .value-item i {
+            font-size: 2rem;
+            color: #A32A87;
+            margin-bottom: 1rem;
+        }
+
+        /* Expertises Section */
+        .expertises {
+            background: #f8f4f8;
+        }
+
+        .expertises-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #A32A87, #e9d1e3);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(163, 42, 135, 0.2);
+        }
+
+        .expertise-card i {
+            font-size: 3rem;
+            color: #A32A87;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-card h3 {
+            color: #A32A87;
+            margin-bottom: 1rem;
+        }
+
+        /* Réalisations Section */
+        .realisations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .realisation-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .realisation-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .realisation-image {
+            height: 200px;
+            background: linear-gradient(135deg, #A32A87, #e9d1e3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .realisation-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="30" r="1.5" fill="white" opacity="0.1"/></svg>');
+        }
+
+        .realisation-image i {
+            font-size: 4rem;
+            color: white;
+            z-index: 2;
+            position: relative;
+        }
+
+        .realisation-content {
+            padding: 2rem;
+        }
+
+        .realisation-tag {
+            background: #A32A87;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        /* Références Section */
+        .references {
+            background: #f8f4f8;
+        }
+
+        .references-slider {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Pour le défilement */
+            gap: 3rem;
+            overflow-x: hidden;
+            width: 100%;
+            padding: 2rem 0;
+            position: relative;
+            height: 120px;
+        }
+        .reference-logo-img {
+            height: 100px;
+            min-width: 140px;
+            object-fit: contain;
+            filter: grayscale(0.2);
+            transition: filter 0.3s;
+        }
+
+        .reference-logo-img:hover {
+            filter: none;
+        }
+
+        /* Méthodologie Section */
+        .methodology-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: #A32A87;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: calc(100% - 40px);
+            width: 100%;
+            height: 2px;
+            background: #e9d1e3;
+            z-index: -1;
+        }
+
+        .step:last-child::after {
+            display: none;
+        }
+
+        /* Témoignages Section */
+        .testimonials {
+            background: #f8f4f8;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: #A32A87;
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            opacity: 0.3;
+        }
+
+        .testimonial-author {
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #A32A87;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #A32A87, #e9d1e3);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #A32A87;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .methodology-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .step::after {
+                display: none;
+            }
+
+            .realisations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">DataExpert</div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#expertises">Expertises</a></li>
+                <li><a href="#realisations">Réalisations</a></li>
+                <li><a href="#references">Références</a></li>
+                <li><a href="#methodologie">Méthodologie</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content fade-in">
+            <h1>Valorisez vos données, optimisez vos décisions</h1>
+            <p>Consultant freelance expert en data, analyse stratégique et intelligence artificielle</p>
+            <div class="cta-buttons">
+                <a href="#expertises" class="btn btn-primary">Découvrir mes expertises</a>
+                <a href="#contact" class="btn btn-secondary">Prenons rendez-vous</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- À propos -->
+    <section id="apropos" class="section about">
+        <h2 class="fade-in">Votre partenaire data de confiance</h2>
+        <div class="about-content">
+            <div class="about-image fade-in">
+                <div class="profile-circle">
+                    <img src="img/profil.jpg" alt="Photo de profil" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Projets réalisés</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">Grands groupes</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Années d'expérience</div>
+                    </div>
+                </div>
+            </div>
+            <div class="fade-in">
+                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+                    Consultant indépendant en Data et Intelligence Artificielle, diplômé de CentraleSupélec et fort d'expériences variées, j'accompagne mes clients dans la transformation de leurs données en actifs stratégiques à forte valeur ajoutée.
+                </p>
+                <p style="margin-bottom: 2rem;">
+                    Ma mission est de vous aider à exploiter pleinement le potentiel de vos données pour prendre des décisions éclairées et gagner en compétitivité sur votre marché.
+                </p>
+                <div class="values">
+                    <div class="value-item">
+                        <i class="fas fa-award"></i>
+                        <h4>Excellence technique</h4>
+                        <p>Maîtrise des dernières technologies data et IA</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-chess"></i>
+                        <h4>Approche stratégique</h4>
+                        <p>Vision business orientée ROI</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Fiabilité et rigueur</h4>
+                        <p>Respect des délais et qualité</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertises -->
+    <section id="expertises" class="section expertises">
+        <h2 class="fade-in">Mes Expertises</h2>
+        <div class="expertises-grid">
+            <div class="expertise-card fade-in">
+                <i class="fas fa-spider"></i>
+                <h3>Scraping et Génération de Bases de Données</h3>
+                <p>J'extrais, structure et enrichis des données issues de sites web et bases existantes pour constituer des bases de données complètes et exploitables.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Outils Cartographiques</h3>
+                <p>Je développe des solutions de visualisation géospatiale pour identifier rapidement des opportunités commerciales et stratégiques sur des territoires précis.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <i class="fas fa-chart-line"></i>
+                <h3>Analyse Avancée de Bases de Données</h3>
+                <p>Grâce à mes compétences analytiques poussées, je transforme vos bases de données complexes en insights clairs et exploitables.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <i class="fas fa-robot"></i>
+                <h3>Opportunités IA et Data Science</h3>
+                <p>J'identifie les cas d'usage pertinents pour intégrer l'intelligence artificielle et la data science à vos processus existants.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <i class="fas fa-search-dollar"></i>
+                <h3>Études de Marché</h3>
+                <p>Je réalise des études de marché approfondies basées sur une analyse rigoureuse des données pour éclairer vos décisions stratégiques.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Réalisations -->
+    <section id="realisations" class="section">
+        <h2 class="fade-in">Réalisations</h2>
+        <div class="realisations-grid">
+            <div class="realisation-card fade-in">
+                <div class="realisation-image">
+                    <img src="img/cas1.jpg" alt="Cartographie Interactive" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="realisation-content">
+                    <div class="realisation-tag">Cartographie Interactive</div>
+                    <h3>Cartographie des Agences d'Aide à Domicile</h3>
+                    <p>Développement d'une plateforme cartographique interactive permettant de visualiser et analyser la répartition géographique de plus de 12 000 agences d'aide à domicile en France. Solution incluant filtrage par région, catégorie juridique, et analyse des liens capitalistiques entre établissements.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Interface web responsive avec cartes interactives</li>
+                        <li>Base de données enrichie (SIREN, coordonnées, dirigeants)</li>
+                        <li>Filtres dynamiques et analyses en temps réel</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="realisation-card fade-in">
+                <div class="realisation-image">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <div class="realisation-content">
+                    <div class="realisation-tag">Analyse Prédictive</div>
+                    <h3>Optimisation de Portefeuille Client B2B</h3>
+                    <p>Mise en place d'un système d'analyse prédictive pour identifier les prospects les plus prometteurs dans le secteur B2B. Développement d'algorithmes de scoring basés sur des données publiques et privées pour optimiser les efforts commerciaux.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Modèles de machine learning pour le scoring</li>
+                        <li>Dashboard de pilotage commercial</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Références -->
+    <section id="references" class="section references">
+        <h2 class="fade-in">Ils m'ont fait confiance</h2>
+        <div class="references-slider" id="referencesSlider">
+            <img src="img/logo1.jpg" alt="logo1" class="reference-logo-img">
+            <img src="img/logo2.png" alt="logo2" class="reference-logo-img">
+            <img src="img/logo3.jpg" alt="logo3" class="reference-logo-img">
+            <img src="img/logo4.jpg" alt="logo4" class="reference-logo-img">
+            <img src="img/logo5.png" alt="logo5" class="reference-logo-img">
+            <img src="img/logo6.jpg" alt="logo6" class="reference-logo-img">
+        </div>
+    </section>
+
+    <!-- Méthodologie -->
+    <section id="methodologie" class="section">
+        <h2 class="fade-in">Ma Méthodologie</h2>
+        <div class="methodology-steps">
+            <div class="step fade-in">
+                <div class="step-number">1</div>
+                <h3>Compréhension fine de vos besoins</h3>
+                <p>Analyse approfondie de votre contexte, objectifs et contraintes pour définir la solution optimale.</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-number">2</div>
+                <h3>Proposition de solution sur-mesure</h3>
+                <p>Conception d'une approche personnalisée avec planning détaillé et estimation précise.</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-number">3</div>
+                <h3>Mise en œuvre agile et transparente</h3>
+                <p>Développement itératif avec points d'étape réguliers et communication continue.</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-number">4</div>
+                <h3>Livraison de livrables exploitables</h3>
+                <p>Remise de solutions clés en main avec formation et documentation complète.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+        <h2 class="fade-in">Discutons de votre projet</h2>
+        <div class="contact-content fade-in">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                Prêt à transformer vos données en avantage concurrentiel ? Contactez-moi pour échanger sur vos besoins.
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Contact</h4>
+                    <p>hugo.peeters@hotmail.fr</p>
+                    <p>+33 6 74 83 93 29</p>
+                </div>
+
+            </div>
+            <div style="margin-top: 2rem;">
+                <a href="#" class="btn btn-secondary" style="background: white; color: #A32A87;">
+                    <i class="fas fa-calendar-check" style="margin-right: 0.5rem;"></i>
+                    Prendre rendez-vous
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section" style="background: #f8f4f8;">
+        <h2 class="fade-in">Questions Fréquentes</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item fade-in" style="background: white; margin-bottom: 1rem; padding: 1.5rem; border-radius: 15px; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
+                <h4 style="color: #A32A87; margin-bottom: 1rem; cursor: pointer;" onclick="toggleFAQ(this)">
+                    <i class="fas fa-chevron-down" style="margin-right: 0.5rem; transition: transform 0.3s;"></i>
+                    Combien de temps prend un projet type ?
+                </h4>
+                <div class="faq-answer" style="display: none; padding-top: 1rem; border-top: 1px solid #eee;">
+                    <p>La durée varie selon la complexité : de 2-3 semaines pour une analyse de données à 2-3 mois pour un projet cartographique complet. Je fournis toujours un planning détaillé dès la phase de cadrage.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in" style="background: white; margin-bottom: 1rem; padding: 1.5rem; border-radius: 15px; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
+                <h4 style="color: #A32A87; margin-bottom: 1rem; cursor: pointer;" onclick="toggleFAQ(this)">
+                    <i class="fas fa-chevron-down" style="margin-right: 0.5rem; transition: transform 0.3s;"></i>
+                    Travaillez-vous avec des TPE/PME ?
+                </h4>
+                <div class="faq-answer" style="display: none; padding-top: 1rem; border-top: 1px solid #eee;">
+                    <p>Absolument ! J'adapte mes solutions à tous types d'entreprises. Pour les TPE/PME, je propose des approches modulaires et des tarifs adaptés pour maximiser le ROI.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in" style="background: white; margin-bottom: 1rem; padding: 1.5rem; border-radius: 15px; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
+                <h4 style="color: #A32A87; margin-bottom: 1rem; cursor: pointer;" onclick="toggleFAQ(this)">
+                    <i class="fas fa-chevron-down" style="margin-right: 0.5rem; transition: transform 0.3s;"></i>
+                    Comment garantissez-vous la confidentialité ?
+                </h4>
+                <div class="faq-answer" style="display: none; padding-top: 1rem; border-top: 1px solid #eee;">
+                    <p>Signature systématique de NDA, chiffrement des données, serveurs sécurisés et conformité RGPD. Vos données sont traitées avec le plus haut niveau de sécurité.</p>
+                </div>
+            </div>
+            <div class="faq-item fade-in" style="background: white; margin-bottom: 1rem; padding: 1.5rem; border-radius: 15px; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
+                <h4 style="color: #A32A87; margin-bottom: 1rem; cursor: pointer;" onclick="toggleFAQ(this)">
+                    <i class="fas fa-chevron-down" style="margin-right: 0.5rem; transition: transform 0.3s;"></i>
+                    Proposez-vous un suivi post-livraison ?
+                </h4>
+                <div class="faq-answer" style="display: none; padding-top: 1rem; border-top: 1px solid #eee;">
+                    <p>Oui, je fournis une période de support incluse après chaque livraison, plus des options de maintenance et d'évolution selon vos besoins futurs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#" onclick="showPopup('mentions')">Mentions légales</a>
+            <a href="#" onclick="showPopup('confidentialite')">Politique de confidentialité</a>
+            <a href="https://www.linkedin.com/in/hugo-peeters-129701224/" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="mailto:hugo.peeters@hotmail.fr">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+        <p>&copy; 2025 DataExpert - Consultant Freelance Data & IA</p>
+        <p style="font-size: 0.9rem; opacity: 0.8;">Transformons vos données en avantage concurrentiel</p>
+    </footer>
+
+    <!-- Popups -->
+    <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4); z-index:9999;">
+        <div id="popup-content" style="background:white; max-width:600px; margin:10vh auto; padding:2rem; border-radius:20px; position:relative;">
+            <span style="position:absolute; top:1rem; right:1rem; cursor:pointer; font-size:1.5rem;" onclick="closePopup()">&times;</span>
+            <div id="popup-text"></div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                answer.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Active navigation link highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add active state styling for navigation
+        const style = document.createElement('style');
+        style.textContent = `
+            .nav-links a.active {
+                color: #A32A87 !important;
+                font-weight: 600;
+            }
+            
+            .nav-links a.active::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: #A32A87;
+            }
+            
+            .nav-links a {
+                position: relative;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Parallax effect disabled - was causing overlap issues
+        // window.addEventListener('scroll', () => {
+        //     const scrolled = window.pageYOffset;
+        //     const hero = document.querySelector('.hero');
+        //     if (hero) {
+        //         hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        //     }
+        // });
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace('+', ''));
+                const increment = target / 50;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + '+';
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + '+';
+                    }
+                }, 30);
+            });
+        }
+
+        // Trigger counter animation when about section is visible
+        const aboutSection = document.querySelector('#apropos');
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    aboutObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (aboutSection) {
+            aboutObserver.observe(aboutSection);
+        }
+
+        // Add hover effects to cards
+        document.querySelectorAll('.expertise-card, .realisation-card, .testimonial-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Typing effect for hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect
+        setTimeout(() => {
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                typeWriter(heroTitle, originalText, 80);
+            }
+        }, 500);
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.getElementById('referencesSlider');
+        const logos = Array.from(slider.children);
+
+        // Mélange aléatoire
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        shuffle(logos);
+        logos.forEach(logo => slider.appendChild(logo));
+
+        // Duplique les logos pour un scroll infini
+        logos.forEach(logo => {
+            const clone = logo.cloneNode(true);
+            slider.appendChild(clone);
+        });
+
+        // Animation défilante
+        let scrollAmount = 0;
+        function scrollLogos() {
+            scrollAmount += 1;
+            if (scrollAmount >= slider.scrollWidth / 2) {
+                scrollAmount = 0;
+            }
+            slider.scrollLeft = scrollAmount;
+            requestAnimationFrame(scrollLogos);
+        }
+        scrollLogos();
+    });
+
+    function showPopup(type) {
+    const overlay = document.getElementById('popup-overlay');
+    const text = document.getElementById('popup-text');
+    if (type === 'mentions') {
+        text.innerHTML = `
+            <h2 style="color:#A32A87;">Mentions légales</h2>
+            <p><strong>Éditeur du site :</strong> Hugo Peeters</p>
+            <p><strong>Responsable de la publication :</strong> [Nom, prénom]</p>
+            <p><strong>Adresse :</strong> [Adresse postale]</p>
+            <p><strong>Téléphone :</strong> [Numéro de téléphone]</p>
+            <p><strong>Email :</strong> hugo.peeters@hotmail.fr</p>
+            <p><strong>SIRET :</strong> [Numéro SIRET]</p>
+            <p><strong>Hébergeur :</strong> [Nom de l'hébergeur] - [Adresse de l'hébergeur]</p>
+        `;
+    } else if (type === 'confidentialite') {
+        text.innerHTML = `
+            <h2 style="color:#A32A87;">Politique de confidentialité</h2>
+            <p>Ce site collecte des données personnelles uniquement dans le cadre du formulaire de contact ou de la prise de rendez-vous.</p>
+            <p><strong>Données collectées :</strong> [Liste des données collectées]</p>
+            <p><strong>Finalité :</strong> [Finalité de la collecte]</p>
+            <p><strong>Durée de conservation :</strong> [Durée de conservation des données]</p>
+            <p><strong>Droits :</strong> Vous pouvez demander l'accès, la rectification ou la suppression de vos données à l'adresse suivante : hugo.peeters@hotmail.fr</p>
+            <p><strong>Contact RGPD :</strong> [Nom et contact du responsable RGPD]</p>
+        `;
+    }
+    overlay.style.display = 'block';
+}
+function closePopup() {
+    document.getElementById('popup-overlay').style.display = 'none';
+}
+    </script>
+</body>
+</html>
