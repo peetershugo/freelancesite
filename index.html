@@ -604,7 +604,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">DataExpert</div>
+            <div class="logo">AtoutData</div>
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#apropos">À propos</a></li>
@@ -629,7 +629,8 @@
             <p>Consultant freelance expert en data, analyse stratégique et intelligence artificielle</p>
             <div class="cta-buttons">
                 <a href="#expertises" class="btn btn-primary">Découvrir mes expertises</a>
-                <a href="#contact" class="btn btn-secondary">Prenons rendez-vous</a>
+                <a href="https://calendly.com/hugo-peeters-domicare/aboutdata-30min" class="btn btn-secondary" target="_blank">Prenons rendez-vous</a>
+
             </div>
         </div>
     </section>
@@ -715,6 +716,15 @@
                 <h3>Études de Marché</h3>
                 <p>Je réalise des études de marché approfondies basées sur une analyse rigoureuse des données pour éclairer vos décisions stratégiques.</p>
             </div>
+            <div class="expertise-card fade-in">
+                <i class="fas fa-robot"></i>
+                <h3>Workflows IA avec OpenAI</h3>
+                <p>Je conçois et mets en place des workflows automatisés basés sur l’API d’OpenAI afin d’optimiser vos processus métier, 
+    générer du contenu intelligent et intégrer l’intelligence artificielle au cœur de vos outils existants.</p>
+            </div>
+
+
+
         </div>
     </section>
 
@@ -811,9 +821,9 @@
 
             </div>
             <div style="margin-top: 2rem;">
-                <a href="#" class="btn btn-secondary" style="background: white; color: #A32A87;">
-                    <i class="fas fa-calendar-check" style="margin-right: 0.5rem;"></i>
-                    Prendre rendez-vous
+                <a href="https://calendly.com/hugo-peeters-domicare/aboutdata-30min" class="btn btn-secondary" style="background: white; color: #A32A87;" target="_blank">
+                <i class="fas fa-calendar-check" style="margin-right: 0.5rem;"></i>
+                Prendre rendez-vous
                 </a>
             </div>
         </div>
@@ -838,7 +848,7 @@
                     Travaillez-vous avec des TPE/PME ?
                 </h4>
                 <div class="faq-answer" style="display: none; padding-top: 1rem; border-top: 1px solid #eee;">
-                    <p>Absolument ! J'adapte mes solutions à tous types d'entreprises. Pour les TPE/PME, je propose des approches modulaires et des tarifs adaptés pour maximiser le ROI.</p>
+                    <p>Absolument ! J'adapte mes solutions à tous types d'entreprises.</p>
                 </div>
             </div>
             <div class="faq-item fade-in" style="background: white; margin-bottom: 1rem; padding: 1.5rem; border-radius: 15px; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
@@ -850,15 +860,7 @@
                     <p>Signature systématique de NDA, chiffrement des données, serveurs sécurisés et conformité RGPD. Vos données sont traitées avec le plus haut niveau de sécurité.</p>
                 </div>
             </div>
-            <div class="faq-item fade-in" style="background: white; margin-bottom: 1rem; padding: 1.5rem; border-radius: 15px; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
-                <h4 style="color: #A32A87; margin-bottom: 1rem; cursor: pointer;" onclick="toggleFAQ(this)">
-                    <i class="fas fa-chevron-down" style="margin-right: 0.5rem; transition: transform 0.3s;"></i>
-                    Proposez-vous un suivi post-livraison ?
-                </h4>
-                <div class="faq-answer" style="display: none; padding-top: 1rem; border-top: 1px solid #eee;">
-                    <p>Oui, je fournis une période de support incluse après chaque livraison, plus des options de maintenance et d'évolution selon vos besoins futurs.</p>
-                </div>
-            </div>
+
         </div>
     </section>
 
@@ -874,7 +876,7 @@
                 <i class="fas fa-envelope"></i> Email
             </a>
         </div>
-        <p>&copy; 2025 DataExpert - Consultant Freelance Data & IA</p>
+        <p>&copy; 2025 AtoutData - Consultant Freelance Data & IA</p>
         <p style="font-size: 0.9rem; opacity: 0.8;">Transformons vos données en avantage concurrentiel</p>
     </footer>
 
@@ -1118,24 +1120,43 @@
         text.innerHTML = `
             <h2 style="color:#A32A87;">Mentions légales</h2>
             <p><strong>Éditeur du site :</strong> Hugo Peeters</p>
-            <p><strong>Responsable de la publication :</strong> [Nom, prénom]</p>
-            <p><strong>Adresse :</strong> [Adresse postale]</p>
-            <p><strong>Téléphone :</strong> [Numéro de téléphone]</p>
+            <p><strong>Responsable de la publication :</strong> Hugo Peeters</p>
+            <p><strong>Adresse :</strong> 17 avenue Joffre, 92420, Vaucresson</p>
+            <p><strong>Téléphone :</strong> +33 6 74 83 93 29</p>
             <p><strong>Email :</strong> hugo.peeters@hotmail.fr</p>
-            <p><strong>SIRET :</strong> [Numéro SIRET]</p>
-            <p><strong>Hébergeur :</strong> [Nom de l'hébergeur] - [Adresse de l'hébergeur]</p>
+            <p><strong>SIRET :</strong> 944 446 145 00012</p>
+            <p><strong>Hébergeur :</strong> GitHub Pages - GitHub Inc. – 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA</p>
         `;
     } else if (type === 'confidentialite') {
         text.innerHTML = `
             <h2 style="color:#A32A87;">Politique de confidentialité</h2>
+            
             <p>Ce site collecte des données personnelles uniquement dans le cadre du formulaire de contact ou de la prise de rendez-vous.</p>
-            <p><strong>Données collectées :</strong> [Liste des données collectées]</p>
-            <p><strong>Finalité :</strong> [Finalité de la collecte]</p>
-            <p><strong>Durée de conservation :</strong> [Durée de conservation des données]</p>
-            <p><strong>Droits :</strong> Vous pouvez demander l'accès, la rectification ou la suppression de vos données à l'adresse suivante : hugo.peeters@hotmail.fr</p>
-            <p><strong>Contact RGPD :</strong> [Nom et contact du responsable RGPD]</p>
+            
+            <h4>Données collectées</h4>
+            <ul>
+                <li>Prénom et nom</li>
+                <li>Adresse e-mail</li>
+
+            <h4>Finalité</h4>
+            <ul>
+                <li>Répondre aux demandes de démonstration</li>
+                <li>Améliorer l’expérience utilisateur</li>
+                <li>Réaliser des statistiques de fréquentation</li>
+            </ul>
+
+            <h4>Durée de conservation</h4>
+            <p>Les données sont conservées pour une durée maximale de <strong>3 ans</strong> à compter du dernier contact émanant de l’utilisateur.</p>
+
+            <h4>Vos droits</h4>
+            <p>Vous pouvez demander l'accès, la rectification ou la suppression de vos données à l'adresse suivante : 
+            <a href="mailto:hugo.peeters@hotmail.fr">hugo.peeters@hotmail.fr</a></p>
+
+            <h4>Contact RGPD</h4>
+            <p>Hugo Peeters</p>
         `;
     }
+
     overlay.style.display = 'block';
 }
 function closePopup() {
